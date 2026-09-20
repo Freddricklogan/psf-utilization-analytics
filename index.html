@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>PSF Utilization Analytics — practice economics for consulting firms</title>
+<meta name="description" content="Utilization, leverage, realization and pricing economics for a professional-services practice, computed from an editable staffing table and engagement portfolio, with what-if scenarios and a rate calculator. Client-side; sample data.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://freddricklogan.github.io/psf-utilization-analytics/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cpath d='M7 22l6-7 5 4 7-9' fill='none' stroke='%2358a6ff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='25' cy='10' r='2.4' fill='%233fb950'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Freddrick Logan">
+<meta property="og:title" content="PSF Utilization Analytics — practice economics for consulting firms">
+<meta property="og:description" content="Utilization, leverage, realization and pricing economics computed from an editable staffing table, with what-if scenarios and a rate calculator.">
+<meta property="og:url" content="https://freddricklogan.github.io/psf-utilization-analytics/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PSF Utilization Analytics — practice economics for consulting firms">
+<meta name="twitter:description" content="Utilization, leverage, realization and pricing economics computed from an editable staffing table, with what-if scenarios and a rate calculator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PSF Utilization Analytics","description":"Utilization, leverage, realization and pricing economics for a professional-services practice, computed from an editable staffing table and engagement portfolio. Client-side; sample data.","url":"https://freddricklogan.github.io/psf-utilization-analytics/","applicationCategory":"BusinessApplication","operatingSystem":"Any (Web)","author":{"@type":"Person","name":"Freddrick Logan","url":"https://fredlogan.phd"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<main id="demo-root" class="exec-main">
+  <h2 class="sr-only">Practice economics</h2>
+  <div class="psf-top">
+    <span><strong id="practice-name">—</strong> · <span id="practice-period">—</span></span>
+    <span>Sample data — illustrative. Realized revenue = standard revenue × portfolio realization (a stated simplification).</span>
+  </div>
+  <p id="status" class="psf-statusbar" role="status" aria-live="polite"></p>
+
+  <section class="psf-panel" aria-labelledby="staff-heading">
+    <h3 id="staff-heading">Staffing table</h3>
+    <p class="psf-hint">Edit any cell. Utilization = billable ÷ available hours; multiple = bill rate ÷ cost rate; cost is for available hours because people are paid whether or not they bill.</p>
+    <div class="psf-scroll"><table class="psf-table" id="staff-table"></table></div>
+  </section>
+
+  <div class="psf-two">
+    <section class="psf-panel" aria-labelledby="summary-heading">
+      <h3 id="summary-heading">Practice economics</h3>
+      <p class="psf-hint">Derived from the staffing table and the engagement portfolio.</p>
+      <dl id="summary"></dl>
+    </section>
+    <section class="psf-panel" id="scenario" aria-labelledby="scenario-heading">
+      <h3 id="scenario-heading">What-if scenario</h3>
+      <p class="psf-hint">Utilization in points of available hours; rates and non-partner headcount as percentages. Partners are held constant.</p>
+      <div class="psf-sliders">
+        <div class="psf-slider"><label for="sc-util">Utilization</label><output id="sc-util-val" for="sc-util">+0 pts</output><input type="range" id="sc-util" min="-20" max="20" step="1" value="0"></div>
+        <div class="psf-slider"><label for="sc-rate">Bill rates</label><output id="sc-rate-val" for="sc-rate">+0%</output><input type="range" id="sc-rate" min="-20" max="20" step="1" value="0"></div>
+        <div class="psf-slider"><label for="sc-lev">Non-partner headcount</label><output id="sc-lev-val" for="sc-lev">+0%</output><input type="range" id="sc-lev" min="-50" max="50" step="5" value="0"></div>
+      </div>
+      <div class="psf-scroll"><table class="psf-table" id="comparison"></table></div>
+      <div class="psf-tools"><button type="button" class="psf-btn" id="sc-reset">Reset scenario</button></div>
+    </section>
+  </div>
+
+  <section class="psf-panel" aria-labelledby="eng-heading">
+    <h3 id="eng-heading">Engagement portfolio</h3>
+    <p class="psf-hint">Realization = billed ÷ (actual hours × standard rate). "Fixed vs T&amp;M" is what the fixed fee earned relative to billing the actual hours at the standard rate.</p>
+    <div class="psf-scroll"><table class="psf-table" id="engagements"></table></div>
+  </section>
+
+  <section class="psf-panel" id="calculator" aria-labelledby="calc-heading">
+    <h3 id="calc-heading">Rate calculator</h3>
+    <p class="psf-hint">Required rate = (cost rate ÷ utilization) ÷ (1 − target margin). The utilization term is the part most rate cards forget.</p>
+    <div class="psf-calc">
+      <label>Fully loaded cost rate ($/h)<input type="number" id="calc-cost" value="95" min="0" step="1"></label>
+      <label>Target margin (%)<input type="number" id="calc-margin" value="35" min="0" max="99" step="1"></label>
+      <label>Expected utilization (%)<input type="number" id="calc-util" value="78" min="1" max="100" step="1"></label>
+      <label>Bill rate to test ($/h)<input type="number" id="calc-bill" value="225" min="0" step="1"></label>
+    </div>
+    <div class="psf-result">
+      <div class="psf-result__box"><div class="psf-result__label">Required rate</div><div class="psf-result__value" id="calc-rate" aria-live="polite">—</div><div class="psf-result__note" id="calc-rate-note"></div></div>
+      <div class="psf-result__box"><div class="psf-result__label">Margin at the tested rate</div><div class="psf-result__value" id="calc-margin-out" aria-live="polite">—</div><div class="psf-result__note">at the same cost and utilization</div></div>
+    </div>
+  </section>
+
+  <section class="psf-panel" aria-labelledby="csv-heading">
+    <h3 id="csv-heading">Import and export</h3>
+    <p class="psf-hint">Staffing CSV with a header row: level, headcount, cost_rate, bill_rate, available_hours, billable_hours. Invalid rows are skipped and reported.</p>
+    <div class="psf-tools">
+      <button type="button" class="psf-btn psf-btn--primary" id="import-staff">Import staffing CSV</button>
+      <button type="button" class="psf-btn" id="export-staff">Export staffing CSV</button>
+      <button type="button" class="psf-btn" id="reset">Reset to sample</button>
+      <input type="file" id="file-staff" accept="text/csv,.csv" class="sr-only" tabindex="-1" aria-label="Staffing CSV file">
+    </div>
+  </section>
+</main>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
