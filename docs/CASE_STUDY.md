@@ -14,7 +14,7 @@ A small advisory practice has a full order book. Two fixed-fee engagements for p
 
 ## 3. What it costs to leave it alone
 
-Underpricing compounds quietly: a rate set without the utilization term looks profitable per hour and loses money per person. Fixed fees quoted from hopeful estimates move the overrun risk onto the practice, one engagement at a time. Slow collection turns paper profit into a credit line. I will not attach a figure; it varies with the practice and the sample here is illustrative. The realistic cost is the one in the scenario — a year of work that produced a margin nobody chose — and, for a practice serving institutions on grant budgets, a rate card that cannot be defended to a procurement officer.
+Underpricing compounds quietly: a rate set without the utilization term looks profitable per hour and loses money per person. Fixed fees quoted from hopeful estimates move the overrun risk onto the practice, one engagement at a time. Slow collection turns paper profit into debt. I will not attach a figure; it varies with the practice and the sample here is illustrative. The realistic cost is the one in the scenario — a year of work that produced a margin nobody chose — and, for a practice serving institutions on grant budgets, a rate card that cannot be defended to a procurement officer.
 
 ## 4. The approach, and the alternative I rejected
 
