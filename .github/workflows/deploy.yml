@@ -29,8 +29,10 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - name: ESLint (typed) + tsc --noEmit
+      - name: ESLint (typed)
         run: npm run lint
+      - name: tsc --noEmit
+        run: npm run typecheck
       - name: html-validate
         run: npm run validate
       # A new repository's own Pages URL does not exist until the first deploy,
