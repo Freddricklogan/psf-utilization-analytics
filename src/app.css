@@ -1,0 +1,47 @@
+/* Demo-specific styles. Shell tokens come from shell/exec-shell.css. */
+.psf-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: .84rem; color: var(--muted); margin-bottom: 10px; }
+.psf-top strong { color: var(--text); }
+.psf-statusbar { margin: 0 0 14px; padding: 8px 12px; border-radius: var(--radius-sm); background: var(--panel); border: 1px solid var(--border); border-left: 3px solid var(--tone, var(--border)); font-size: .8rem; color: var(--muted); min-height: 2.2em; }
+[data-tone='ok'] { --tone: var(--ok); } [data-tone='warn'] { --tone: var(--warn); } [data-tone='danger'] { --tone: var(--danger); } [data-tone='accent'] { --tone: var(--accent); } [data-tone='muted'] { --tone: var(--muted); }
+td[data-tone], dd[data-tone] { color: var(--tone); font-weight: 600; }
+
+.psf-panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 16px; }
+.psf-panel h3 { margin: 0 0 4px; font-size: 1rem; }
+.psf-hint { margin: 0 0 14px; font-size: .82rem; color: var(--muted); }
+.psf-two { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; }
+@media (max-width: 960px) { .psf-two { grid-template-columns: minmax(0, 1fr); } }
+.psf-scroll { overflow-x: auto; }
+
+.psf-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.psf-table th { text-align: left; font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 8px 6px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.psf-table td { padding: 7px 6px; border-bottom: 1px solid var(--border); font-size: .84rem; white-space: nowrap; }
+.psf-table tbody th { font-size: .84rem; text-transform: none; letter-spacing: 0; color: var(--text); font-weight: 500; }
+.psf-input { width: 84px; background: var(--panel-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; font: inherit; font-size: .82rem; }
+
+.psf-kv { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: .84rem; margin: 0; }
+.psf-kv dt { display: flex; flex-direction: column; color: var(--muted); }
+.psf-kv dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.psf-note { font-size: .7rem; color: var(--muted); opacity: .8; }
+dl { margin: 0; }
+
+.psf-sliders { display: grid; gap: 12px; margin-bottom: 14px; }
+.psf-slider { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 8px; }
+.psf-slider label { font-size: .8rem; color: var(--muted); margin-bottom: 4px; }
+.psf-slider input[type='range'] { grid-column: 1 / -1; }
+.psf-slider output { color: var(--accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+.psf-slider input[type='range'] { width: 100%; accent-color: var(--accent); }
+
+.psf-calc { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.psf-calc label { display: flex; flex-direction: column; gap: 4px; font-size: .78rem; color: var(--muted); }
+.psf-calc input { background: var(--panel-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 6px 8px; font: inherit; }
+.psf-result { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.psf-result__box { background: var(--panel-2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; }
+.psf-result__label { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.psf-result__value { font-size: 1.5rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.psf-result__note { font-size: .72rem; color: var(--muted); }
+
+.psf-tools { display: flex; gap: 8px; flex-wrap: wrap; }
+.psf-btn { padding: 7px 12px; background: var(--panel-2); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font: inherit; font-size: .8rem; cursor: pointer; }
+.psf-btn:hover { background: var(--border); }
+.psf-btn--primary { background: var(--accent); border-color: var(--accent); color: #07101f; font-weight: 600; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
