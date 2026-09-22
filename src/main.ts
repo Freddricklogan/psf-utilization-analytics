@@ -131,6 +131,7 @@ $('reset').addEventListener('click', () => { state.practice = samplePractice(); 
 /* ---------------------------------------------------------------- shell */
 
 const shell = mountExecShell({
+  theme: 'midnight',
   title: 'PSF Utilization Analytics',
   tagline: 'Utilization, leverage, realization and pricing economics for a consulting practice — every figure computed from an editable staffing table and engagement portfolio. Sample data; illustrative.',
   repo: REPO,
