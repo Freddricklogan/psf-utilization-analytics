@@ -32,7 +32,7 @@ Worth knowing: realized revenue is standard revenue from the staffing table scal
 
 ## 6. Evidence
 
-Measured in continuous integration and a headless-browser smoke test of the built site: 29 unit tests passing across four files, 100% statement coverage over the five pure modules, type-checked ESLint and `tsc --noEmit` clean, HTML validation clean, CodeQL and dependency scanning enabled. The Vite build emits no inline script or style, so the `default-src 'none'` policy holds in production. In the browser: zero console errors; the tour's fourth step applies five points of utilization and reports +$405,192 realized revenue and +$202,596 profit per partner on the sample; the fifth prices a $95-per-hour cost at 35% margin and 78% utilization at $187 per hour. No horizontal scroll at 400 pixels.
+Measured in continuous integration and a headless-browser smoke test of the built site: 37 unit tests passing across four files, 100% statement coverage over the five pure modules, type-checked ESLint and `tsc --noEmit` clean, HTML validation clean, CodeQL and dependency scanning enabled. The Vite build emits no inline script or style, so the `default-src 'none'` policy holds in production. In the browser: zero console errors; the tour's fourth step applies five points of utilization and reports +$405,192 realized revenue and +$202,596 profit per partner on the sample; the fifth prices a $95-per-hour cost at 35% margin and 78% utilization at $187 per hour. No horizontal scroll at 400 pixels.
 
 ## 7. What it would take to run this in production
 

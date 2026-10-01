@@ -145,7 +145,7 @@ npm run build && npm run preview
 **Verification — the numbers this repository actually produced:**
 
 ```bash
-npm test         # Test Files 4 passed (4) · Tests 29 passed (29)
+npm test         # Test Files 4 passed (4) · Tests 37 passed (29)
 npm run coverage # All files 100% statements · 97.12% branches
 npm run lint     # eslint (typed) + tsc --noEmit — clean
 npm run validate # html-validate index.html — clean
